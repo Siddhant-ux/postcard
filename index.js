@@ -20,10 +20,10 @@ app.get('/', (req, res) => {
     res.send("App is Running");
 });
 //const CONNECTION_URL = 'mongodb+srv://adminSiddhant:adminSiddhant123@cluster0.7bklh.mongodb.net/test?retryWrites=true&w=majority';
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
-.then(() => app.listen(PORT, () => console.log(`Server started on Port ${PORT}`)))
+.then(() => app.listen(port, () => console.log(`Server started on Port ${port}`)))
 .catch((err) => console.log(err));
 
 //mongoose.set('useFindAndModify', false);
