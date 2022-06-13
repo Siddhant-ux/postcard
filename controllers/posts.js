@@ -45,11 +45,10 @@ export const createPost = async (req, res) => {
     const newPost = new PostMessage({...post, creator: req.userId, createdAt: new Date().toISOString()});
     try{
         await newPost.save();
-        res.status(201).json(newPost);  // 201 stands for created successfully
+        return res.status(201).json(newPost);  // 201 stands for created successfully
     }catch(error){
         return res.status(409).json({message: error.message});  //conflict
     }
-    return res.send('Post Creating');
 };
 
 
